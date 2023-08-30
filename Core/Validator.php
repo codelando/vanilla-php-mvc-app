@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Validator 
 {
     // As a pure function, string() can be made static with no risks
