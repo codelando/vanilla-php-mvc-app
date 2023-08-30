@@ -2,7 +2,7 @@
 
 class Validator 
 {
-    // As a pure function string() can be made static with no risks
+    // As a pure function, string() can be made static with no risks
     public static function string($value, $min = 1, $max = INF) { 
         $value = trim($value);
 
