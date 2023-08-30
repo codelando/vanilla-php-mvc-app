@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>PHP MVC Workout</title>
+    <script src="https://cdn.tailwindcss.com?pluggins=forms"></script>
 </head>
 <body class="h-full">
     <div class="min-h-full">

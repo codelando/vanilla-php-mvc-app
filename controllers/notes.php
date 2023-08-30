@@ -5,7 +5,7 @@ $db = new Database($config['database']);
 
 $currentUserId = 2;
 
-$notes = $db->query("select * from notes where user_id = :id", [':id' => $currentUserId])->fetchAll();
+$notes = $db->query("select * from notes where user_id = :id", [':id' => $currentUserId])->findAll();
 
 $heading = "Notes";
 
