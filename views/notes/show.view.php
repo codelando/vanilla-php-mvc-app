@@ -8,6 +8,13 @@
             <a href="/notes" class="text-blue-500 hover:underline">Back to notes</a>
         </p>
         <p><?= htmlspecialchars($note['body']); ?></p>
+        <p class="mt-6">
+            <form method="POST">
+                <input type="hidden" name="id" value="<?= $note['id']; ?>">
+                <button class="text-red-500 hover:underline">Delete note</button>
+            </form>
+        </p>
+
     </div>
 </main>
 
