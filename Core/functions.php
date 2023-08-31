@@ -16,6 +16,17 @@ function isUrl($value)
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
+function abort($status = Response::NOT_FOUND) 
+{ 
+    http_response_code($status);
+    
+    $view = file_exists("views/{$status}.php") ? "views/{$status}.php" : "views/404.php";
+    
+    require base_path($view);
+    
+    die();
+}
+
 function authorize($condition, $status = Response::FORBIDDEN) 
 {
     if (! $condition) {
