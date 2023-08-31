@@ -7,11 +7,12 @@ $db = new Database($config['database']);
 
 $currentUserId = 2;
 
+
 $note = $db->query("select * from notes where id = :id", [':id' => $_GET['id']])->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
-view('notes/show', [
-    'heading' => 'Note detail',
-    'note' => $note
-]);
+$db->query("delete from notes where id = :id", [':id' => $_GET['id']]);
+
+header('location: /notes');
+die();
