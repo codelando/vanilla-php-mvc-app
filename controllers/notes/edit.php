@@ -10,7 +10,8 @@ $currentUserId = 2;
 
 authorize($note['user_id'] === $currentUserId);
 
-view('notes/show', [
-    'heading' => 'Note detail',
-    'note' => $note
+view('notes/edit', [
+    'heading' => 'Update note',
+    'note' => $note,
+    'errors' => []
 ]);
