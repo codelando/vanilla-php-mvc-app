@@ -6,22 +6,17 @@ use Http\Forms\LoginForm;
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$form = new LoginForm();
-
-if (! $form->validate($email, $password)) {
-    return view('session/create', [
-        'errors' => $form->errors()
-    ]);
-}
-
+$form = new LoginForm;
 $auth = new Authenticator;
 
-if ($auth->attempt($email, $password)) {
-    redirect('/');
-} 
+if ( $form->validate($email, $password)) {   
+    if ($auth->attempt($email, $password)) {
+        redirect('/');
+    }
+    
+    $form->error('email', 'No matching account found for that email address and password.');
+}
 
-return view('sessions/create', [
-    'errors' => [
-        'email' => 'No matching account found for that email address and password.'
-    ]
+return view('session/create', [
+    'errors' => $form->errors()
 ]);
