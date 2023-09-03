@@ -27,8 +27,6 @@ if (empty($errors)) {
         'id' => $_GET['id']
     ]);
 
-    header("location: /note?id={$_GET['id']}");
-    die();
-
+    redirect("location: /note?id={$_GET['id']}");
 }
 

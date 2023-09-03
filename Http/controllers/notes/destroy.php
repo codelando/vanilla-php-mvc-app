@@ -14,5 +14,4 @@ authorize($note['user_id'] === $currentUserId);
 
 $db->query("delete from notes where id = :id", [':id' => $_GET['id']]);
 
-header('location: /notes');
-die();
+redirect('/notes');

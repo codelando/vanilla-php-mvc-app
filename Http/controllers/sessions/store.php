@@ -1,10 +1,7 @@
 <?php
 
-use Core\App;
-use Core\Database;
+use Core\Authenticator;
 use Http\Forms\LoginForm;
-
-$db = App::resolve(Database::class);
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -17,25 +14,14 @@ if (! $form->validate($email, $password)) {
     ]);
 }
 
-$user = $db->query("select * from users where email = :email", [
-    ':email' => $email
-])->find();
+$auth = new Authenticator;
 
-if ($user) {
-    if (password_verify($password, $user['password'])) {
-    
-        login([
-            'email' => $email
-        ]);
-    
-        header('location: /');
-        die();
-    }
-}
+if ($auth->attempt($email, $password)) {
+    redirect('/');
+} 
 
 return view('sessions/create', [
     'errors' => [
         'email' => 'No matching account found for that email address and password.'
     ]
 ]);
-

@@ -7,9 +7,7 @@ class Guest
     public function handle() 
     {
         if ($_SESSION['user'] ?? null) {
-            header('location: /');
-
-            die();
+            redirect('/');
         }
     }
 }

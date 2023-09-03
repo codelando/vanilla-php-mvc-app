@@ -25,8 +25,6 @@ if (empty($errors)) {
         'user_id' => 6
     ]);
 
-    header('location: /notes');
-    die();
-
+    redirect('/notes');
 }
 
