@@ -1,3 +1,7 @@
 <?php
 
-view('sessions/create');
+use Core\Session;
+
+view('sessions/create', [
+    'errors' => Session::get('errors')
+]);
