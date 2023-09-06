@@ -29,7 +29,7 @@ class Session {
         $_SESSION['_flash'][$key] = $value;
     }
 
-    public static function unflash($key, $value)
+    public static function unflash()
     {
         unset($_SESSION['_flash']);
     }
