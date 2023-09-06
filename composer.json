@@ -1,0 +1,10 @@
+{
+    "name": "lando/vanilla-php-mvc-app",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
